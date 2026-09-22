@@ -1,4 +1,4 @@
-const C='crossscan-beta435-offline-v1';
+const C='crossscan-beta436-offline-v1';
 const A=['./','./index.html','./manifest.webmanifest','./vendor/zxing-browser.min.js','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png'];
 self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(C);await c.addAll(A);self.skipWaiting()})()));
 self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if(k!==C)await caches.delete(k);await self.clients.claim()})()));
