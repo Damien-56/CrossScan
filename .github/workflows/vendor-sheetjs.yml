@@ -1,6 +1,8 @@
 name: Vendor SheetJS
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 permissions:
   contents: write
 jobs:
