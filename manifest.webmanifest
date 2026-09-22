@@ -1,6 +1,7 @@
 {
-  "name": "CrossScan Beta Test",
+  "name": "CrossScan BETA 3",
   "short_name": "CrossScan",
+  "description": "Classement d'arrivée de cross scolaire, utilisable hors ligne.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
