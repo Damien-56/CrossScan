@@ -1,0 +1,22 @@
+name: Vendor SheetJS
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download pinned SheetJS
+        run: |
+          mkdir -p vendor
+          curl -fL --retry 3 https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js -o vendor/xlsx.full.min.js
+          test -s vendor/xlsx.full.min.js
+      - name: Commit vendor
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vendor/xlsx.full.min.js
+          git diff --cached --quiet || git commit -m "Vendor SheetJS 0.20.3 for offline XLSX import"
+          git push
