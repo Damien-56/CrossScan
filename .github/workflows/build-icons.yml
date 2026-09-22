@@ -28,4 +28,5 @@ jobs:
           git add icons/*.png
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Build installable PWA icons"
+          git pull --rebase origin main
           git push
