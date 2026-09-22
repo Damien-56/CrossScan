@@ -1,0 +1,9 @@
+{
+  "name": "CrossScan Beta Test",
+  "short_name": "CrossScan",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f7",
+  "theme_color": "#17212b"
+}
