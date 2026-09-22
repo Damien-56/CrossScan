@@ -1,0 +1,26 @@
+name: Build Complete Archive
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify required offline files
+        run: |
+          test -s vendor/zxing-browser.min.js
+          test -s icons/icon-192.png
+          test -s icons/icon-512.png
+          test -s icons/icon-maskable-512.png
+          grep -q "Hors ligne : prêt" index.html
+      - name: Upload complete repository snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: CrossScan_BETA3_ARCHIVE_COMPLETE_2026-09-22
+          path: |
+            .
+            !.git
+          include-hidden-files: true
+          if-no-files-found: error
